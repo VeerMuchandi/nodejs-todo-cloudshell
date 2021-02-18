@@ -1,0 +1,12 @@
+apiVersion: skaffold/v1alpha4
+kind: Config
+build:
+  artifacts:
+  - image: gcr.io/veerganpatiproject1/nodetodo
+    context: .
+    sync:
+      '*.js': .
+deploy:
+  kubectl:
+    manifests:
+    - ./kubernetes-manifests/**.yaml
